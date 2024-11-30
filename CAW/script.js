@@ -1,4 +1,3 @@
-
 //aba inicial--------------------------------------------------------------------------------------------
 let currentIndex = 0;
 
@@ -38,83 +37,7 @@ setInterval(() => {
 
 
 //aba de avaliações--------------------------------------------------------------------------------------
-const avaliacao = [];
-
-function addReview() {
-  
-  const name = document.getElementById("name").value;
-  const comment = document.getElementById("comment").value;
-  const rating = document.getElementById("rating").value;
-
-  
-  if (name && comment && rating) {
-   
-    const review = { name, comment, rating };
-    reviews.push(review);
-    
- 
-    displayReviews();
-    
-   
-    clearForm();
-  } else {
-    alert("Por favor, preencha todos os campos.");
-  }
-}
-
-function displayReviews() {
- 
-  const reviewsContainer = document.getElementById("postagem");
-  reviewsContainer.innerHTML = "";
-
-
-  reviews.forEach(review => {
-    const reviewElement = document.createElement("div");
-    reviewElement.classList.add("review");
-
-    reviewElement.innerHTML = `
-      <h3>${review.name} <span class="rating">(${review.rating}⭐)</span></h3>
-      <p>${review.comment}</p>
-    `;
-
-    reviewsContainer.appendChild(reviewElement);
-  });
-}
-
-function clearForm() {
-  
-  document.getElementById("name").value = "";
-  document.getElementById("comment").value = "";
-  document.getElementById("rating").value = "5";
-}
-
-
-
-
-
-
-
-const estrelas = [];
-let selecionaNota = 0; 
-
-
-document.querySelectorAll(".star").forEach(star => {
-  star.addEventListener("click", function() {
-    selectedRating = this.getAttribute("data-value");
-    updateStarSelection(selectedRating);
-  });
-});
-
-function updateStarSelection(rating) {
-  document.querySelectorAll(".star").forEach(star => {
-    star.classList.remove("selected");
-  });
-
- 
-  for (let i = 0; i < rating; i++) {
-    document.querySelectorAll(".star")[i].classList.add("selected");
-  }
-}
+const reviews = [];
 
 function addReview() {
   const name = document.getElementById("name").value;
@@ -130,23 +53,52 @@ function addReview() {
   }
 }
 
+let selectedRating = 0; // Inicialização da variável para o formulário de avaliação
+
+// Seleção de estrelas no formulário de avaliação
+document.querySelectorAll(".review-form .star").forEach(star => {
+  star.addEventListener("click", function() {
+    selectedRating = parseInt(this.getAttribute("data-value"));
+    updateStarSelection(selectedRating);
+  });
+});
+
+function updateStarSelection(rating) {
+  document.querySelectorAll(".review-form .star").forEach((star, index) => {
+    if (index < rating) {
+      star.classList.add("selected");
+    } else {
+      star.classList.remove("selected");
+    }
+  });
+}
+
 function displayReviews() {
-  const reviewsContainer = document.getElementById("reviews");
+  const reviewsContainer = document.getElementById("avaliacao");
   reviewsContainer.innerHTML = "";
 
   reviews.forEach(review => {
     const reviewElement = document.createElement("div");
     reviewElement.classList.add("review");
 
+    // Cria as estrelas preenchidas de acordo com a nota
+    let stars = '';
+    for (let i = 0; i < 5; i++) {
+      if (i < review.rating) {
+        stars += '<span class="star selected">★</span>'; // Estrela preenchida
+      } else {
+        stars += '<span class="star">★</span>'; // Estrela vazia
+      }
+    }
+
     reviewElement.innerHTML = `
-      <h3>${review.name} <span class="rating">(${review.rating}⭐)</span></h3>
+      <h3>${review.name} <span class="rating">${stars}</span></h3>
       <p>${review.comment}</p>
     `;
 
     reviewsContainer.appendChild(reviewElement);
   });
 }
-
 function clearForm() {
   document.getElementById("name").value = "";
   document.getElementById("comment").value = "";
