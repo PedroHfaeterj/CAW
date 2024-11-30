@@ -19,7 +19,7 @@
     }
 
     main{
-        padding: 120px;
+        padding: 20px;
         color: white;
         text-align: justify;
     }
@@ -96,13 +96,14 @@
 
 /* aba de avaliações */
    .postagem{
-    max-width: 600px;
+    max-width: 100%;
     margin: 20px auto;
-    padding: 60px;
+    padding: 100px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-
+    overflow-y: auto;
+    max-height: 400px;
    }
 
    .review-form textarea {
@@ -116,7 +117,8 @@
     color: #ffffff;
     border: 1px solid #444;
     border-radius: 5px;
-    }
+    width: calc(100% - 24px);
+   }
 
 
    
@@ -160,4 +162,46 @@
 .image-content img {
     max-width: 300px; 
     height: auto; 
+}
+
+.servico-bloco {
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo leve para os blocos */
+  padding: 20px; /* Espaçamento interno */
+  margin: 20px 0; /* Margem entre os blocos */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  color: white; /* Cor do texto */
+}
+
+/*aba sobre nos */
+
+.sobre-nos {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo leve */
+  border-radius: 8px; /* Bordas arredondadas */
+  margin: 20px 0; /* Margem ao redor da seção */
+}
+
+/* Estilos para os certificados */
+.certificados {
+  display: flex; /* Usar flexbox para alinhar os certificados */
+  justify-content: center; /* Centraliza os certificados */
+  flex-wrap: wrap; /* Permite que os certificados se movam para a próxima linha se necessário */
+  margin-top: 20px; /* Espaço acima da seção de certificados */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.certificados img {
+  max-width: 300px; /* Largura máxima para as imagens dos certificados */
+  height: auto; /* Mantém a proporção da imagem */
+  margin: 10px; /* Margem ao redor das imagens */
+}
+
+.contato {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo leve */
+  border-radius: 8px; /* Bordas arredondadas */
+  margin: 20px 0; /* Margem ao redor da seção */
+  color: white; /* Cor do texto */
+  text-align: left; /* Alinhamento do texto à esquerda */
 }
