@@ -45,22 +45,46 @@
       
             <div class="review-form">
               <h4>Deixe sua avaliação</h4>
-              <input type="text" id="name" placeholder="Seu nome" required>
-              <br>
-              <br>
-              <textarea id="comment" placeholder="Escreva sua avaliação..." required rows="4"></textarea>
-              
-              
-              <div class="star-rating">
-                <span class="star" data-value="1">★</span>
-                <span class="star" data-value="2">★</span>
-                <span class="star" data-value="3">★</span>
-                <span class="star" data-value="4">★</span>
-                <span class="star" data-value="5">★</span>
-              </div>
-              
-              <button onclick="addReview()">Enviar Avaliação</button>
-            </div>
+              <form id="avaliacaoForm" method="POST" action="processar_avaliacao.php">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" 
+                           id="name" 
+                           name="name" 
+                           class="form-control" 
+                           placeholder="Seu nome" 
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Sua avaliação:</label>
+                    <textarea id="comment" 
+                            name="comment" 
+                            class="form-control" 
+                            placeholder="Escreva sua avaliação..." 
+                            rows="4" 
+                            required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Avaliação:</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar Avaliação</button>
+            </form>
+        </div>
         
  
             
