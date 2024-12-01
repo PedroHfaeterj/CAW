@@ -122,23 +122,79 @@
 
 
    
-   .star-rating {
-    display: flex;
-    gap: 5px;
-    font-size: 24px;
-    cursor: pointer;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .star {
-    color: #ccc;
-    transition: color 0.3s;
-  }
-  
-  .star.selected {
-    color: #FFD700;
-  }
+  /* Estilos para o formulário */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Estilos para as estrelas */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  cursor: pointer;
+  font-size: 30px;
+  color: #ddd;
+  padding: 5px;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: #ffb700;
+}
+
+/* Estilo para o botão */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #357abd;
+}
+
+.review-name {
+  font-size: 16px; /* Define o tamanho da fonte especificamente para o nome nas avaliações */
+  margin-bottom: 5px; /* Espaçamento entre o nome e o restante do conteúdo */
+}
   
 /* aba de insufilms */ 
 
@@ -205,3 +261,4 @@
   color: white; /* Cor do texto */
   text-align: left; /* Alinhamento do texto à esquerda */
 }
+
